@@ -1,0 +1,22 @@
+<%= form_with model: task do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% task.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  
+   <div class="field form-field">
+      <div class="form-label-container">
+        <%= form.label :completed, class: 'form-label' %>
+      </div>
+      <div class="form-input-container">
+        <%= form.check_box :completed, id: :task_completed, class: 'form-input' %>
+      </div>
+    </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
